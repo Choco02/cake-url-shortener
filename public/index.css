@@ -1,0 +1,29 @@
+body {
+    /* background-color: #cd87ff; */
+    background-color: #28b5f4;
+    font-family: monospace;
+    font-family: 'Indie Flower';
+
+}
+
+#url {
+    text-align: center;
+    margin-top: 10vh;
+    position: relative;
+    z-index: 1;
+}
+
+.field {
+    width: 40vw;
+    height: 3vh;
+}
+
+#result {
+    text-align: center;
+    margin-top: 200px;
+    font-size: 3vw;
+}
+
+#urlCustom {
+    font-family: monospace;
+  }

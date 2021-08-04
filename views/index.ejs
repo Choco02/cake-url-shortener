@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake URL shortener</title>
+    <link rel="stylesheet" href="/index.css">
+    <!-- <link rel="stylesheet" href="../public/index.css"> -->
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <form action="" method="get">
+        <div id="url">
+            <h1>Crie seu link personalizado</h1>
+            <input type="text" name="url" class="field" placeholder="Cole aqui seu link" pattern="(https?:\/\/)?(www\.)?((\w+-){1,4}|\w+)\w+\.\w+\/.*">
+            <input type="text" name="custom" placeholder="link personalizado">
+            <input type="submit" value="Criar">
+            <h1 id="urlCustom">
+                <%=result%>
+                Seu link aqui
+            </h1>
+        </div>
+    </form>
+    <!-- <script src="/index.js"></script> -->
+</body>
+
+</html>

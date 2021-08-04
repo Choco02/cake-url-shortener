@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "standard"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "semi-style": ["error", "last"],
+        "semi": ["error", "always"],
+        "no-irregular-whitespace": ["error"],
+        "no-multi-spaces": "error",
+        "brace-style": ["error", "stroustrup"],
+        "comma-style": "error",
+        "no-trailing-spaces": "error",
+        "space-before-function-paren": "error",
+        "space-before-blocks": "error"
+    }
+}
