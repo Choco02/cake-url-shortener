@@ -1,7 +1,9 @@
 body {
     /* background-color: #cd87ff; */
     /* background-color: #28b5f4; */
-    background-color: #A258F7;
+    /* background-color: #A258F7; */
+    background: rgb(182,102,241);
+    background: linear-gradient(3deg, rgba(182,102,241,1) 6%, rgba(0,212,255,1) 100%);
     font-family: monospace;
     font-family: 'Indie Flower';
 
@@ -29,5 +31,10 @@ body {
 }
 
 #urlCustom {
+    font-family: monospace;
+}
+
+p {
+    font-size: 4vh;
     font-family: monospace;
 }
