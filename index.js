@@ -60,11 +60,11 @@ app.get('/index', async (req, res) => {
     }
     else short = customUrl;
     /* eslint-disable */
-        await new urls({
-            url: url,
-            short: short
-        }).save()
-        /* eslint-enable */
+    await new urls({
+      url: url,
+      short: short
+    }).save()
+    /* eslint-enable */
     databaseCache = await urls.find({});
     res.render('index', { result: `${req.protocol}://${req.hostname}/${short}` });
   }
