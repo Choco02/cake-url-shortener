@@ -1,17 +1,35 @@
+* {
+    font-family: monospace;
+}
+
 body {
     /* background-color: #cd87ff; */
     /* background-color: #28b5f4; */
     /* background-color: #A258F7; */
-    background: rgb(182,102,241);
-    background: linear-gradient(3deg, rgba(182,102,241,1) 6%, rgba(0,212,255,1) 100%);
-    font-family: monospace;
-    font-family: 'Indie Flower';
 
+    /* background: rgb(65,87,147); */
+    /* background: linear-gradient(0deg, rgba(65,87,147,1) 0%, rgba(29,39,65,1) 0%, rgba(21,28,46,1) 25%, rgba(9,12,20,1) 73%); */
+
+    background-image: url("galaxy.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    color: white;
+
+}
+
+#box {
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #url {
     text-align: center;
-    margin-top: 10vh;
+    margin-top: 3vh;
+    /* box-shadow: 0 0 0 2px white; */
+    width: 50vw;
+    height: 60vh;
+    background-color: rgb(20, 19, 19);
 }
 
 #container {
@@ -20,21 +38,73 @@ body {
 }
 
 .field {
-    width: 40vw;
+    width: 35vw;
+    height: 5vh;
+    font-size: 2vh;
     flex-grow: 4;
-}
-
-#result {
-    text-align: center;
-    margin-top: 200px;
-    font-size: 3vw;
+    /* box-shadow: 0 0 0 2px white; */
 }
 
 #urlCustom {
-    font-family: monospace;
+    margin: auto auto 20vh;
 }
 
-p {
-    font-size: 4vh;
+input {
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+    border: none; 
+}
+
+::placeholder {
+    opacity: 1;
+    color: black;
+}
+
+input:focus {
+    box-shadow: 0 0 0 3px rgb(245, 218, 218);
+}
+
+#input-url {
+    margin-top: 5vh;
+    background: #71eeff;
+    margin-bottom: 20px
+}
+
+#input-url:hover {
+    background: white;
+}
+
+#shortened {
+    background: #fc8f94
+}
+
+#shortened:hover {
+    background: white;
+}
+
+#create {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 25vw;
+    height: 5vh;
+    font-size: 3vh;
+}
+
+#create:hover {
+    background: black;
+    color: white;
+    box-shadow: 0 0 0 1px white;
+}
+
+footer {
+    margin-top: 20vh;
+    font-size: 20px;
     font-family: monospace;
+    width: 40vw;
+    background-color: black;
+}
+
+a {
+    color: rgb(7, 143, 255);
 }

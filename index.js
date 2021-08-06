@@ -28,7 +28,9 @@ const generateUrl = () => {
 /* eslint-disable */
 const simpleSanitize = (str) => str.replace(/[^\w:\/\/\.@#\-=?%]/gi, '');
 
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false,
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));

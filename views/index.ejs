@@ -7,32 +7,37 @@
     <link rel="stylesheet" href="/index.css">
     <!-- <link rel="stylesheet" href="../public/index.css"> -->
     
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <form action="" method="get">
-        <div id="url">
-            <h1>Crie seu link personalizado</h1>
-            <div id="input-container">
-                <input type="text" name="url" class="field" placeholder="Cole aqui seu link" pattern="(https?:\/\/)?(www\.)?((\w+-){1,4}|\w+)\w+\.\w+\/.*">
-                <input type="text" name="custom" class="field" placeholder="link personalizado">
-                <input type="submit" value="Criar">
+        <div id="box">
+            <div id="url">
+                <h1>Create your custom link</h1>
+                <div id="input-container">
+                    <input type="text" name="url" class="field" id="input-url" placeholder="Paste here your long url" pattern="(https?:\/\/)?(www\.)?((\w+-){1,4}|\w+)\w+\.\w+\/.*">
+                    <br>
+                    <input type="text" name="custom" class="field" id="shortened" placeholder="custom url (optional)">
+                    <br>
+                    <input type="submit" id="create" value="Short it">
+                </div>
+                <h1 id="urlCustom" onclick="copyUrl()">
+                    Click to copy <br>
+                    <%=result%>
+                </h1>
             </div>
-            <h1 id="urlCustom">
-                Seu link aqui <br>
-                <%=result%>
-            </h1>
         </div>
     </form>
-    <!-- <script src="/index.js"></script> -->
+    <br><br>
     <footer>
         <p>
-            <br><br><br>
             Author: <a href="https://github.com/Choco02/cake-url-shortener" target="_blank"> Choco02 </a>
+            <br><br>
+            <a href="https://br.freepik.com/vetores/fundo">Background image created by pikisuperstar</a>
         </p>
     </footer>
+    <script src="/index.js"></script>
+    <!-- <script src="../public/index.js"></script> -->
 </body>
 
 </html>
