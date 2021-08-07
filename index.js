@@ -44,7 +44,7 @@ app.get('/index', async (req, res) => {
   const url = req.query.url;
   const re = /(https?:\/\/)?(www\.)?((\w+-){1,4}|\w+)\w+\.\w+\/.*/gi;
   if (!url) return res.render('index', { result: ' ' });
-  if (!re.test(url)) return res.render('index', { result: 'URL invalida' });
+  if (!re.test(url)) return res.render('index', { result: 'Invalid URL' });
   if (url) {
     let short;
     if (!req.query.custom) {
@@ -87,6 +87,6 @@ app.get('*', async (req, res) => {
   res.redirect(dbData.url);
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Logged in');
 });
