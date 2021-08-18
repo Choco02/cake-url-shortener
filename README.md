@@ -16,3 +16,12 @@
 * Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) website, create a cluster then get a string connection key something like this `"mongodb+srv://<username>:<password>@cluster0-28wdas.mongodb.net/test?retryWrites=true&w=majority"`
 * Create a `.env` file with content `MONGODB_URI=<your_mongodb_connection_key>`
 * Run it using *node .*
+
+# TODO
+- [ ] Change create url route to POST 
+
+- [ ] Add a logger 
+
+- [ ] Add tests 
+
+- [ ] Create a route API 
