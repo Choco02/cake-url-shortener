@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const helmet = require('helmet');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+const { createWriteStream } = require('fs');
 
 const urls = require('./models/urlmodel');
 require('dotenv').config();
@@ -28,26 +30,35 @@ const generateUrl = () => {
 /* eslint-disable */
 const simpleSanitize = (str) => str.replace(/[^\w:\/\/\.@#\-=?%]/gi, '');
 
+const accessLogStream = createWriteStream('./access.log', { flags: 'a' });
+
 app.use(helmet({
   contentSecurityPolicy: false,
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
+app.use(morgan('combined', { stream: accessLogStream }));
 app.set('view engine', 'ejs');
 
 app.get('/index', async (req, res) => {
+  res.render('index', { result: req.query.result })
+});
+
+app.post('/index', async (req, res) => {
   const createdUrls = databaseCache.map(a => a.short);
 
-  const customUrl = req.query.custom ? simpleSanitize(req.query.custom) : null;
+  const customUrl = req.body.custom ? simpleSanitize(req.body.custom) : null;
 
-  const url = req.query.url;
-  const re = /(https?:\/\/)?(www\.)?((\w+-){1,4}|\w+)\w+\.\w+\/.*/gi;
-  if (!url) return res.render('index', { result: ' ' });
-  if (!re.test(url)) return res.render('index', { result: 'Invalid URL' });
+  const url = req.body.url;
+  const re = /(?:https?):\/\/[a-z0-9_-]+\.\w+.*/gi;
+  if (!url) return res.redirect('/index?result= ');
+  if (!re.test(url)) {
+    return res.redirect('/index?result=Invalid URL');
+  }
   if (url) {
     let short;
-    if (!req.query.custom) {
+    if (!req.body.custom) {
       short = generateUrl();
     }
     else if (createdUrls.includes(customUrl)) {
@@ -68,18 +79,12 @@ app.get('/index', async (req, res) => {
     }).save()
     /* eslint-enable */
     databaseCache = await urls.find({});
-    res.render('index', { result: `${req.protocol}://${req.hostname}/${short}` });
+    res.redirect(`/index?result=${req.protocol}://${req.hostname === 'localhost' ? req.hostname + process.env.PORT || 3000 : req.hostname}/${short}`);
   }
-});
-
-app.get('/favicon.ico', (req, res) => {
-  // Consertar isso depois
-  res.end();
 });
 
 app.get('*', async (req, res) => {
   const url = req.path.replace('/', '');
-
   const dbData = await urls.findOne({ short: url });
 
   if (!dbData) return res.redirect('/index');

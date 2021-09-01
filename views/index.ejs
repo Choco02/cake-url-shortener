@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <form action="" method="get">
+    <form action="" method="post">
         <div id="box">
             <div id="url">
                 <h1>Create your custom link</h1>
                 <div id="input-container">
-                    <input type="text" name="url" class="field" id="input-url" placeholder="Paste here your long url" pattern="(https?:\/\/)?(www\.)?((\w+-){1,4}|\w+)\w+\.\w+\/.*">
+                    <input type="text" name="url" class="field" id="input-url" placeholder="Paste here your long url" pattern="(?:https?):\/\/[a-z0-9_-]+\.\w+.*">
                     <br>
                     <input type="text" name="custom" class="field" id="shortened" placeholder="custom url (optional)">
                     <br>
@@ -33,7 +33,6 @@
         <p>
             Author: <a href="https://github.com/Choco02/cake-url-shortener" target="_blank"> Choco02 </a>
             <br><br>
-            <a href="https://br.freepik.com/vetores/fundo">Background image created by pikisuperstar</a>
         </p>
     </footer>
     <script src="/index.js"></script>

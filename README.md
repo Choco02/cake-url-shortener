@@ -18,10 +18,17 @@
 * Run it using *node .*
 
 # TODO
-- [ ] Change create url route to POST 
+- [x] Change create url route to POST 
 
-- [ ] Add a logger 
+- [x] Add a logger 
 
 - [ ] Add tests 
 
 - [ ] Create a route API 
+
+
+
+
+
+
+*Background image by [pikisuperstar](https://www.freepik.com/pikisuperstar)*
