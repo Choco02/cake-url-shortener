@@ -8,11 +8,14 @@ const { createWriteStream } = require('fs');
 const urls = require('./models/urlmodel');
 require('dotenv').config();
 
+const DEV = process.argv[2];
+const PORT = process.env.PORT || 3000;
+
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-  .then(() => console.log('Connected sucessfull'))
+  .then(() => console.log('Connected successful'))
   .catch(err => console.log(err.stack));
 
 let databaseCache;
@@ -79,7 +82,7 @@ app.post('/index', async (req, res) => {
     }).save()
     /* eslint-enable */
     databaseCache = await urls.find({});
-    res.redirect(`/index?result=${req.protocol}://${req.hostname === 'localhost' ? req.hostname + process.env.PORT || 3000 : req.hostname}/${short}`);
+    res.redirect(`/index?result=${req.protocol}://${DEV ? req.hostname + ':' + PORT : req.hostname}/${short}`);
   }
 });
 
@@ -92,6 +95,10 @@ app.get('*', async (req, res) => {
   res.redirect(dbData.url);
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('Logged in');
+app.listen(PORT, () => {
+  console.log(`Running on port ${PORT}`);
+
+  const mode = DEV ? '\u001b[31m' : '\u001b[32;1m';
+
+  console.log(`${mode}Running in mode ${DEV ? 'DEV' : 'PROD'} \u001b[0m`);
 });

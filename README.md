@@ -12,10 +12,10 @@
 
 * Clone the project
 * Download and install [Node.js](https://nodejs.org/en/download/) (if you haven't already)
-* Run ``` npm i ```
+* Run `npm i`
 * Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) website, create a cluster then get a string connection key something like this `"mongodb+srv://<username>:<password>@cluster0-28wdas.mongodb.net/test?retryWrites=true&w=majority"`
 * Create a `.env` file with content `MONGODB_URI=<your_mongodb_connection_key>`
-* Run it using *node .*
+* Run it using `npm run dev` for **DEV mode** and `npm run start` for **PROD**
 
 # TODO
 - [x] Change create url route to POST 
